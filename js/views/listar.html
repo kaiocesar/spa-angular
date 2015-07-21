@@ -1,0 +1,19 @@
+<div class="table-responsive">
+	
+	<a href="/#/pessoas/adicionar" class="btn btn-success">Adicionar</a>
+
+	<h5>Lista de pessoas</h5>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nome</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="pessoa in pessoas">
+				<td>{{pessoa.name}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
