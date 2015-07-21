@@ -1,6 +1,6 @@
 <div class="table-responsive">
 	
-	<h5>Lista de pessoas</h5>
+	<h5>Lista de posts</h5>
 
 	<table class="table">
 		<thead>
@@ -9,8 +9,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr ng-repeat="pessoa in pessoas">
-				<td>{{pessoa.name}}</td>
+			<tr ng-repeat="post in posts">
+				<td>{{post.title}}</td>
+				<td>{{post.body}}</td>
 			</tr>
 		</tbody>
 	</table>

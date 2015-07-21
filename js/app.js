@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute','ngResource'])
 	.config(function($routeProvider){
 		$routeProvider
 			.when('/',{
@@ -8,6 +8,10 @@ angular.module('app', ['ngRoute'])
 			.when('/pessoas/adicionar',{
 				templateUrl: 'js/views/adicionar.html',
 				controller: 'CtrlHome'
+			})
+			.when('/posts', {
+				templateUrl: 'js/views/posts.html',
+				controller: 'CtrlPost'
 			});
 	})
 	.factory('Pessoas', function() {
@@ -23,10 +27,13 @@ angular.module('app', ['ngRoute'])
 	})
 	.controller('CtrlHome', ['$scope', 'Pessoas', function($scope, Pessoas){
 		$scope.pessoas = Pessoas;
-		
-		$scope.add = function(){
-			console.log($scope.pessoa);
-			$scope.pessoas.push($scope.pessoa);
 
+		$scope.add = function(){			
+			$scope.pessoas.push($scope.pessoa);
 		};
+
+	}])
+	.controller('CtrlPost', ["$scope", "$resource", function($scope, $resource){
+		Posts = $resource("http://jsonplaceholder.typicode.com/posts");
+		$scope.posts = Posts.query();
 	}]);
